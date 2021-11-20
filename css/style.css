@@ -12,3 +12,8 @@ body{
     justify-content: center;
     align-items: center;
 }
+p{
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 20px;
+}
