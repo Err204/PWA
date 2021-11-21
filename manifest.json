@@ -3,7 +3,7 @@
     "short_name": "PWA",
     "description": "An example of a Progressive Web App",
     "lang": "en-US",
-    "start_url": "/index.html",
+    "start_url": "./index.html",
     "display": "standalone",
     "background_color": "#555555",
     "theme_color": "#333333",
