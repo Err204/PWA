@@ -1,6 +1,8 @@
 {
     "name": "Progressive Web App",
     "short_name": "PWA",
+    "description": "An example of a Progressive Web App",
+    "lang": "en-US",
     "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#555",
