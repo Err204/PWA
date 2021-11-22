@@ -1,4 +1,4 @@
-var cacheName = "err204-pwa-v2";
+var cacheName = "err204-pwa-v3";
 var cacheFiles = [
     "./",
     "./index.html",
@@ -21,7 +21,7 @@ self.addEventListener("activate", function(e){
             return Promise.all(
                 keys
                 .filter(key => key !== cacheName)
-                .map(key => caches.delete(key));
+                .map(key => caches.delete(key))
             );
         })
     );
