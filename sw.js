@@ -1,4 +1,4 @@
-var cacheName = "err204-pwa";
+var cacheName = "err204-pwa-v1";
 var cacheFiles = [
     "./",
     "./index.html",
@@ -12,8 +12,20 @@ self.addEventListener("install", function(e){
             return cache.addAll(cacheFiles);
         })
     );
-    self.skipWaiting();
-    console.log("%cService Worker has been installed and activated.", "color: limegreen;");
+    //console.log("%cService Worker has been installed.", "color: limegreen;");
+});
+
+self.addEventListener("activate", function(e){
+    e.waitUntil(
+        caches.keys().then(function(keys){
+            return Promise.all(
+                keys
+                .filter(key => key !== cacheName)
+                .map(key => caches.delete(key));
+            );
+        })
+    );
+    //console.log("%cService Worker has been activated.", "color: limegreen;");
 });
 
 self.addEventListener("fetch", function(e){
@@ -22,5 +34,5 @@ self.addEventListener("fetch", function(e){
             return response || fetch(e.request);
         })
     );
-    console.log("%cFetch event.", "color: limegreen;", e);
+    //console.log("%cFetch event.", "color: limegreen;", e);
 });
