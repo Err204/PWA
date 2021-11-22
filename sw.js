@@ -1,4 +1,4 @@
-var cacheName = "err204-pwa-v3";
+var cacheName = "err204-pwa-v4";
 var cacheFiles = [
     "./",
     "./index.html",
