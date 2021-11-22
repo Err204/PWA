@@ -13,9 +13,14 @@ self.addEventListener("install", function(e){
         })
     );
     self.skipWaiting();
-    console.log("Service Worker has been installed and activated.");
+    console.log("%cService Worker has been installed and activated.", "color: limegreen;");
 });
 
 self.addEventListener("fetch", function(e){
-    console.log("Fetch event.", e);
+    e.respondWith(
+        caches.match(e.request).then(function(response){
+            return response || fetch(e.request);
+        })
+    );
+    console.log("%cFetch event.", "color: limegreen;", e);
 });
