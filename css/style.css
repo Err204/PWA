@@ -12,6 +12,7 @@ html{
     height: 100%;
 }
 body{
+    background: #00AA00;
     height: 100%;
     display: flex;
     justify-content: center;
