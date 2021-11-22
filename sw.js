@@ -1,9 +1,19 @@
-self.addEventListener("install", function(e){
-    console.log("Service Worker has been installed.");
-});
+var cacheName = "err204-pwa";
+var cacheFiles = [
+    "./",
+    "./index.html",
+    "./css/style.css",
+    "./js/script.js"
+];
 
-self.addEventListener("activate", function(e){
-    console.log("Service Worker has been activated.");
+self.addEventListener("install", function(e){
+    e.waitUntil(
+        cache.open(cacheName).then(function(cache){
+            return cache.addAll(cacheFiles);
+        });
+    );
+    self.skipWaiting();
+    console.log("Service Worker has been installed and activated.");
 });
 
 self.addEventListener("fetch", function(e){
